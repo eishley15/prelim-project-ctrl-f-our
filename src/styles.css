@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+@import "tailwindcss";
+
+
+
+body {
+    background-color: #FEF9E6;
+    --primary-color: #FF772A;
+    --secondary-color: #0160FD;
+    --tertiary-color: #78C5FE;
+    --color-black: #535150;
+}
