@@ -1,25 +1,19 @@
-/* --- GRID LAYOUT --- */
 .programs-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-
-  /* Reduced space between top 2 and bottom 2 */
   gap: 45px;
   row-gap: 40px;
-
-  /* Wider container for wider rectangles */
   max-width: 1850px;
   margin: 0 auto;
   padding: 0 40px;
 }
 
-/* --- PROGRAM CARD --- */
+
 .program-card {
   position: relative;
   overflow: hidden;
   border-radius: 24px;
 
-  /* Card height still large */
   height: 520px;
   width: 100%;
 
@@ -27,7 +21,7 @@
   transition: transform 0.3s ease;
 }
 
-/* Slight stagger but reduced since you want rows closer */
+
 .program-card:nth-child(3),
 .program-card:nth-child(4) {
   margin-top: 25px;
@@ -37,7 +31,6 @@
   transform: translateY(-4px);
 }
 
-/* --- TEXT OVERLAYS --- */
 .program-text-overlay,
 .program-text-bottom {
   position: absolute;
@@ -74,7 +67,7 @@
   object-fit: cover;
 }
 
-/* --- TABLET --- */
+
 @media (max-width: 1024px) {
   .programs-grid {
     grid-template-columns: 1fr;
@@ -104,7 +97,7 @@
   }
 }
 
-/* --- MOBILE --- */
+
 @media (max-width: 640px) {
   .programs-grid {
     padding: 0 16px;
@@ -130,7 +123,7 @@
   }
 }
 
-/* --- SMALL MOBILE --- */
+
 @media (max-width: 480px) {
   .program-card {
     height: 360px;
