@@ -1,0 +1,142 @@
+/* Ensure proper font rendering */
+.est-text {
+  font-weight: 900;
+  letter-spacing: 0.05em;
+}
+
+/* Refine block spacing and alignment */
+.about-block {
+  border-radius: 24px;
+}
+
+/* Ensure proper text rendering for mission and vision */
+.mission-vision-text {
+  line-height: 1.7;
+}
+
+/* Reduce footer spacing on about page */
+::ng-deep app-footer footer {
+  margin-top: 16rem !important;
+}
+
+/* Circle Bubbles */
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.407), rgba(183, 236, 250, 0.676), rgba(228, 186, 134, 0.787), rgba(224, 138, 92, 0.667));
+  opacity: 0.8;
+}
+
+.bubble-1 {
+  width: 120px;
+  height: 120px;
+  left: 20px;
+  top: 180px;
+  z-index: 40;
+}
+
+.bubble-2 {
+  width: 70px;
+  height: 70px;
+  left: 540px;
+  top: 180px;
+  z-index: 40;
+}
+
+.bubble-3 {
+  width: 40px;
+  height: 40px;
+  right: 260px;
+  top: 210px;
+  z-index: 40;
+}
+
+.bubble-4 {
+  width: 40px;
+  height: 40px;
+  left: 280px;
+  top: 450px;
+  z-index: 40;
+}
+
+.bubble-5 {
+  width: 70px;
+  height: 70px;
+  right: -5px;
+  top: 330px;
+  z-index: 40;
+}
+
+.bubble-6 {
+  width: 40px;
+  height: 40px;
+  left: 680px;
+  top: 620px;
+  z-index: 40;
+}
+
+.bubble-7 {
+  width: 120px;
+  height: 120px;
+  right: 150px;
+  top: 520px;
+  z-index: 40;
+}
+
+/* Slide up animation for about section */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about-section {
+  animation: slideUp 0.8s ease-out;
+}
+
+.about-card {
+  opacity: 0;
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+.about-card-1 {
+  animation-delay: 0.1s;
+}
+
+.about-card-2 {
+  animation-delay: 0.2s;
+}
+
+.about-card-3 {
+  animation-delay: 0.3s;
+}
+
+.about-card-4 {
+  animation-delay: 0.4s;
+}
+
+/* Responsive overlapping cards - stack on mobile */
+@media (max-width: 768px) {
+  .about-container {
+    min-height: auto !important;
+  }
+  
+  .about-container > div {
+    position: relative !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    margin-bottom: 1.5rem;
+  }
+  
+  .bubble {
+    display: none;
+  }
+}
