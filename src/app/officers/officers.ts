@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Footer } from '../footer/footer';
 
 @Component({
@@ -8,8 +8,69 @@ import { Footer } from '../footer/footer';
   styleUrls: ['./officers.css']
 })
 
-export class Officers {
-  
+export class Officers implements OnInit, OnDestroy {
+  private lastScrollTop = 0;
+  private scrollTimeout: any;
+
+  ngOnInit() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    setTimeout(() => {
+      document
+        .querySelectorAll('.animate-on-scroll, .animate-on-scroll-up')
+        .forEach((el) => el.classList.add('animate-in'));
+    }, 120);
+  }
+
+  ngOnDestroy() {
+    if (this.scrollTimeout) {
+      clearTimeout(this.scrollTimeout);
+    }
+  }
+
+  @HostListener('window:scroll')
+  onScroll() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const isScrollingUp = scrollTop < this.lastScrollTop;
+
+    if (isScrollingUp && scrollTop > 50) {
+      this.triggerScrollUpAnimations();
+    }
+
+    this.checkElementsInView();
+    this.lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  }
+
+  private triggerScrollUpAnimations() {
+    if (this.scrollTimeout) {
+      clearTimeout(this.scrollTimeout);
+    }
+
+    this.scrollTimeout = setTimeout(() => {
+      const elements = document.querySelectorAll('.animate-on-scroll-up');
+      elements.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+
+        if (isVisible && !el.classList.contains('animate-in')) {
+          el.classList.add('animate-in');
+        }
+      });
+    }, 60);
+  }
+
+  private checkElementsInView() {
+    const elements = document.querySelectorAll('.animate-on-scroll-up');
+    elements.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight * 0.92 && rect.bottom > 0;
+
+      if (isVisible && !el.classList.contains('animate-in')) {
+        el.classList.add('animate-in');
+      }
+    });
+  }
+
   officers = [
     {
       name: 'Micah Lapuz',

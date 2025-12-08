@@ -1,5 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-on-scroll,
+.animate-on-scroll-up {
+  opacity: 0;
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.animate-in {
+  opacity: 1;
+  animation: fadeInUp 0.9s ease-out forwards;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body, html {
   margin: 0;
   padding: 0;
@@ -114,11 +140,16 @@ body, html {
   width: 100%;
   max-width: 400px; 
   margin: auto;     
+  transform: translateY(16px);
 }
 
 .card:hover {
   transform: translateY(-4px);
   box-shadow: 0 6px 18px rgba(255, 119, 42, 0.35);
+}
+
+.card.animate-in {
+  transform: translateY(0);
 }
 
 
