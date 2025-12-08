@@ -1,1 +1,120 @@
-<p>officers works!</p>
+<!-- INTRO FOR OFFICERS PAGE -->
+<section class="hero-section" style="background: #FEf9E6; padding: 4rem 2rem;">
+  <div class="hero-container">
+
+    <div class="hero-left">
+    <div class="meet-row">
+        <h1 class="meet-text">MEET</h1>
+        <span class="the-pill">THE</span> 
+    </div>
+    <h1 class="geeks-text">GEEKS</h1>
+    </div>
+
+    <div class="hero-right">
+      <p>
+        Code Geeks is a student-led organization under the School of Computing at Holy Angel University, dedicated to developing technical potential through structured learning and collaborative exploration. We provide a space where students can strengthen their skills, build confidence, and navigate the world of digital development with guidance and support.
+      </p>
+    </div>
+  </div>
+</section>
+  <div class="hero-image-container">
+    <img src="group-photo.png" alt="Group Photo">
+  </div>
+
+<div class="officers-text">
+  <h1>Current Officers</h1>
+</div>
+
+<!-- OFFICERS -->
+<div class="container">
+  <!-- @for loop for displaying officers -->
+  @for (officer of officers; track officer) {
+
+    <div class="card">
+
+      <!-- INDIVIDUAL PHOTO -->
+      <div class="photo-container">
+        <img [src]="officer.photo" alt="{{ officer.name }}" />
+      </div>
+
+      <!-- NAME -->
+      <h2 class="name">{{ officer.name }}</h2>
+
+      <!-- ROLE using @if @else if -->
+      <div class="role-badge">
+
+        @if (officer.role === 'Executive Head') {
+          <span class="executive-head">{{ officer.role }}</span>
+        }
+        @else if (officer.role === 'Marketing') {
+          <span class="marketing">{{ officer.role }}</span>
+        }
+        @else if (officer.role === 'Creatives') {
+          <span class="creatives">{{ officer.role }}</span>
+        }
+        @else if (officer.role === 'Finance') {
+          <span class="finance">{{ officer.role }}</span>
+        }
+        @else if (officer.role === 'Operations') {
+          <span class="operations">{{ officer.role }}</span>
+        }
+        @else if (officer.role === 'Internal') {
+          <span class="internal">{{ officer.role }}</span>
+        }
+        @else if (officer.role === 'External') {
+          <span class="external">{{ officer.role }}</span>
+        }
+
+      </div>
+      <hr />
+      <div class="details">
+        <!-- STATUS using @if / @else -->
+        <div class="row">
+          <span class="label">Role Status</span>
+
+          @if (officer.status === 'Active') {
+            <span class="value status active">
+              {{ officer.status }}
+            </span>
+          } @else {
+            <span class="value status inactive">
+              {{ officer.status }}
+            </span>
+          }
+        </div>
+
+        <!-- GENDER using @if -->
+        <div class="row">
+          <span class="label">Gender</span>
+
+          @if (officer.gender === 'Female') {
+            <span class="value gender female">
+              {{ officer.gender }}
+            </span>
+          } @else {
+            <span class="value gender male">
+              {{ officer.gender }}
+            </span>
+          }
+        </div>
+
+        <!-- NUMBER -->
+        <div class="row">
+          <span class="label">Number</span>
+          <span class="value">{{ officer.number }}</span>
+        </div>
+
+        <!-- EMAIL -->
+        <div class="row">
+          <span class="label">Email</span>
+          <span class="value email">{{ officer.email }}</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  }
+</div>
+
+<app-footer></app-footer>
