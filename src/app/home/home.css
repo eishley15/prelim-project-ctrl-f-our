@@ -1,0 +1,77 @@
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll-up {
+  opacity: 0;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-in {
+  opacity: 1;
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Hero section animation */
+.hero-content {
+  animation: fadeInUp 1s ease-out;
+}
+
+/* Mission section animation */
+.mission-card {
+  animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+/* Feature sections animation */
+.feature-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.feature-section.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+.animate-on-scroll-up:nth-child(1) { transition-delay: 0.1s; }
+.animate-on-scroll-up:nth-child(2) { transition-delay: 0.2s; }
+.animate-on-scroll-up:nth-child(3) { transition-delay: 0.3s; }
+.animate-on-scroll-up:nth-child(4) { transition-delay: 0.4s; }

@@ -1,22 +1,18 @@
-/* Ensure proper font rendering */
 .est-text {
   font-weight: 900;
   letter-spacing: 0.05em;
 }
 
-/* Refine block spacing and alignment */
 .about-block {
   border-radius: 24px;
 }
 
-/* Ensure proper text rendering for mission and vision */
 .mission-vision-text {
   line-height: 1.7;
 }
 
-/* Reduce footer spacing on about page */
 ::ng-deep app-footer footer {
-  margin-top: 16rem !important;
+  margin-top: 17rem !important;
 }
 
 /* Circle Bubbles */
@@ -122,21 +118,213 @@
   animation-delay: 0.4s;
 }
 
-/* Responsive overlapping cards - stack on mobile */
-@media (max-width: 768px) {
-  .about-container {
-    min-height: auto !important;
+/* Mobile Responsive Styles */
+@media (max-width: 767px) {
+  .about-section {
+    padding: 3rem 1.25rem !important;
+    min-height: auto;
   }
-  
-  .about-container > div {
+
+  .about-section > div {
+    gap: 1.5rem;
+  }
+
+  .about-card {
     position: relative !important;
     left: 0 !important;
+    right: 0 !important;
     top: 0 !important;
     width: 100% !important;
+    max-width: 100% !important;
     margin-bottom: 1.5rem;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
-  
+
+  .about-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  /* EST Card Mobile */
+  .about-card-1 {
+    height: auto !important;
+    min-height: 280px;
+    padding: 2rem 1.75rem !important;
+  }
+
+  .about-card-1 a {
+    font-size: 0.875rem;
+    padding: 0.5rem 1.25rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+
+  /* Mission Card Mobile */
+  .about-card-2 {
+    height: auto !important;
+    min-height: 340px;
+    padding: 2.5rem 2rem !important;
+  }
+
+  /* Vision Card Mobile */
+  .about-card-3 {
+    height: auto !important;
+    min-height: 340px;
+    padding: 2.5rem 2rem !important;
+  }
+
+  /* Members Card Mobile */
+  .about-card-4 {
+    height: auto !important;
+    min-height: 280px;
+    padding: 2.5rem 2rem !important;
+  }
+
+  /* Typography for mobile */
+  .about-card-1 .text-3xl {
+    font-size: 2.25rem !important;
+    line-height: 1.1 !important;
+  }
+
+  .about-card-2 h2,
+  .about-card-3 h2 {
+    font-size: 1.875rem !important;
+    padding-top: 0 !important;
+    margin-bottom: 1.25rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .about-card-2 p,
+  .about-card-3 p {
+    font-size: 1rem !important;
+    padding-top: 0 !important;
+    line-height: 1.7 !important;
+    letter-spacing: 0.01em;
+  }
+
+  .about-card-4 h1 {
+    font-size: 4.5rem !important;
+    line-height: 1 !important;
+  }
+
+  .about-card-4 p {
+    font-size: 1.625rem !important;
+    line-height: 1.3 !important;
+    margin-top: 0.75rem !important;
+  }
+
+  /* Hide bubbles on mobile */
   .bubble {
     display: none;
+  }
+
+  /* Footer spacing for mobile */
+  ::ng-deep app-footer footer {
+    margin-top: 2.5rem !important;
+  }
+}
+
+/* Tablet Responsive Styles (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .about-section {
+    padding: 4rem 2.5rem !important;
+  }
+
+  .about-section > div {
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .about-card {
+    position: relative !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    max-width: 580px !important;
+    margin: 0 auto 2rem auto !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .about-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+  }
+
+  /* EST Card Tablet */
+  .about-card-1 {
+    height: auto !important;
+    min-height: 300px;
+    padding: 2.25rem 2rem !important;
+    max-width: 500px !important;
+  }
+
+  .about-card-1 a {
+    font-size: 0.9375rem;
+    padding: 0.625rem 1.5rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+
+  /* Mission & Vision Cards Tablet */
+  .about-card-2,
+  .about-card-3 {
+    height: auto !important;
+    min-height: 400px;
+    padding: 3rem 2.75rem !important;
+  }
+
+  /* Members Card Tablet */
+  .about-card-4 {
+    height: auto !important;
+    min-height: 300px;
+    padding: 3rem 2.5rem !important;
+    max-width: 500px !important;
+  }
+
+  /* Typography for tablet */
+  .about-card-1 .text-3xl {
+    font-size: 2.5rem !important;
+    line-height: 1.1 !important;
+  }
+
+  .about-card-2 h2,
+  .about-card-3 h2 {
+    font-size: 2.375rem !important;
+    padding-top: 0 !important;
+    margin-bottom: 1.5rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .about-card-2 p,
+  .about-card-3 p {
+    font-size: 1.0625rem !important;
+    padding-top: 0 !important;
+    line-height: 1.75 !important;
+    letter-spacing: 0.01em;
+  }
+
+  .about-card-4 h1 {
+    font-size: 6rem !important;
+    line-height: 1 !important;
+  }
+
+  .about-card-4 p {
+    font-size: 2.5rem !important;
+    line-height: 1.3 !important;
+    margin-top: 1rem !important;
+  }
+
+  /* Hide bubbles on tablet */
+  .bubble {
+    display: none;
+  }
+
+  /* Footer spacing for tablet */
+  ::ng-deep app-footer footer {
+    margin-top: 3.5rem !important;
   }
 }

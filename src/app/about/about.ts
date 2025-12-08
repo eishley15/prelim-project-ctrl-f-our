@@ -9,7 +9,6 @@ import { Footer } from '../footer/footer';
 })
 export class About implements OnInit {
   ngOnInit() {
-    // Scroll to top when navigating to about page
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }
