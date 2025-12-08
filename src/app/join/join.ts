@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { Footer } from '../footer/footer';
 
 @Component({
@@ -8,13 +9,18 @@ import { Footer } from '../footer/footer';
   styleUrl: './join.css',
 })
 export class Join implements OnInit {
-  ngOnInit() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    setTimeout(() => {
-      document.querySelectorAll('.animate-on-load, .animate-on-scroll').forEach((el) => {
-        el.classList.add('animate-in');
-      });
-    }, 100);
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
+  ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      setTimeout(() => {
+        document.querySelectorAll('.animate-on-load, .animate-on-scroll').forEach((el) => {
+          el.classList.add('animate-in');
+        });
+      }, 100);
+    }
   }
 }

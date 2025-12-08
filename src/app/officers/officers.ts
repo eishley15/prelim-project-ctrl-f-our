@@ -1,4 +1,5 @@
-import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { Footer } from '../footer/footer';
 
 @Component({
@@ -7,19 +8,22 @@ import { Footer } from '../footer/footer';
   templateUrl: './officers.html',
   styleUrls: ['./officers.css']
 })
-
 export class Officers implements OnInit, OnDestroy {
   private lastScrollTop = 0;
   private scrollTimeout: any;
 
-  ngOnInit() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
-    setTimeout(() => {
-      document
-        .querySelectorAll('.animate-on-scroll, .animate-on-scroll-up')
-        .forEach((el) => el.classList.add('animate-in'));
-    }, 120);
+  ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      setTimeout(() => {
+        document
+          .querySelectorAll('.animate-on-scroll, .animate-on-scroll-up')
+          .forEach((el) => el.classList.add('animate-in'));
+      }, 120);
+    }
   }
 
   ngOnDestroy() {
@@ -30,6 +34,8 @@ export class Officers implements OnInit, OnDestroy {
 
   @HostListener('window:scroll')
   onScroll() {
+    if (!isPlatformBrowser(this.platformId)) return;
+
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     const isScrollingUp = scrollTop < this.lastScrollTop;
 
@@ -42,6 +48,8 @@ export class Officers implements OnInit, OnDestroy {
   }
 
   private triggerScrollUpAnimations() {
+    if (!isPlatformBrowser(this.platformId)) return;
+
     if (this.scrollTimeout) {
       clearTimeout(this.scrollTimeout);
     }
@@ -60,6 +68,8 @@ export class Officers implements OnInit, OnDestroy {
   }
 
   private checkElementsInView() {
+    if (!isPlatformBrowser(this.platformId)) return;
+
     const elements = document.querySelectorAll('.animate-on-scroll-up');
     elements.forEach((el) => {
       const rect = el.getBoundingClientRect();
@@ -70,6 +80,7 @@ export class Officers implements OnInit, OnDestroy {
       }
     });
   }
+
 
   officers = [
     {
